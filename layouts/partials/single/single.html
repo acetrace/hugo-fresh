@@ -3,6 +3,10 @@
 
 {{ if isset .Params "feedback" }}
 	{{ partial "section5.html" . }}
+{{ else if (isset .Params "subscribe") }}
+	{{ partial "subscribe.html" }}	
+{{ else if (isset .Params "maplehill") }}
+	{{ partial "maplehill.html" }}	
 {{ else }}
 	{{ partial "single/content.html" . }}
 {{ end }}

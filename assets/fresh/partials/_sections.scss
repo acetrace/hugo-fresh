@@ -10,6 +10,9 @@ Section Styles
     &.section-feature-grey {
         background-color: $dark-lighter;
     }
+    &.section3 {
+        background-color: $dark-lighter3;
+    }
     &.section-secondary {
         background-color: $secondary;
     }
@@ -40,6 +43,10 @@ Section Styles
             color: $muted-grey;
         }
     }
+}
+
+.title-wrapper-wider {
+    max-width: 600px;
 }
 
 //Divider
@@ -80,6 +87,57 @@ img.pushed-image {
             color: $title-grey;
             font-size: 1rem;
             font-weight: 400;
+        }
+    }
+}
+
+.section {
+    a {
+        color: #77adff;
+
+    }
+
+    a:hover {
+        color: #eee;
+        transition: 0.3s linear;
+    }
+
+    li.subtitle:not(:last-child) {
+        margin-bottom: 5px;
+    }
+
+    .title-color2 {
+        color: #ffcb5a;
+    }
+
+    .subtitle.bigger {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  #android-image { display: none; }
+  .section.less-paddings {
+    padding: 1rem 1.5rem;
+   }
+}
+
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+  #android-image { display: block; }
+}
+
+.menu-with-button {
+    padding-inline-start: 0;
+
+    li.subtitle:not(:last-child) {
+        margin-bottom: 5px;
+    }
+    li.with-button {
+        line-height: 38px;
+        .button {
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
     }
 }

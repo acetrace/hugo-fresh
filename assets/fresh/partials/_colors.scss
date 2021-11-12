@@ -4,6 +4,7 @@ Color variables
 
 $dark: #2C2536;
 $dark-lighter: #423751;
+$dark-lighter3: #352B44;
 $dark-acetrace: #2C2536;
 $lightest: #584D68;
 
@@ -16,13 +17,14 @@ $grey-white: #f2f2f2;
 
 $primary: $yellow;
 $primary-grad: linear-gradient(45deg, $yellow, $gold);
-$secondary: #F39200;
+$secondary: #423751;
+$secondary-button: $yellow;
 $accent: #00efb7;
 
 $fade-grey: #ededed;
 $light-grey: #EFF4F7;
 $title-grey: #A9ABAC;
-$blue-grey: #444F60;
+$blue-grey: #352B44;
 $muted-grey: #999;
 $light-blue-grey: #98a9c3;
 $medium-grey: #66676b;
