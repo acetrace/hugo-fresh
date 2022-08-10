@@ -1,43 +1,35 @@
 {{- $section2 := .Site.Params.section2 }}
 {{- $title    := index $section2 "title" }}
 {{- $subtitle := index $section2 "subtitle" }}
-{{- $video := index $section2 "video" }}
 {{- $features := index $section2 "features" }}
 <section class="section is-medium">
   <div class="container">
-    <div class="title-wrapper has-text-centered">
-      <h2 class="title is-2 is-spaced">{{ $title}}</h2>
-      <h3 class="subtitle is-5 is-muted">{{ $subtitle}}</h3>
-      <div class="divider is-centered"></div>
-    </div>
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">{{ $title }}</h1>
+        <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="column is-7 mt-60">
+        {{- range $features }}
+        <article class="media icon-box">
+          <figure class="media-left">
+            <p class="image">
+              <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+            </p>
+          </figure>
+          <div class="media-content mt-50">
+            <div class="content">
+              <p>
+                <span class="icon-box-title">{{ .title }}</span>
 
-    <div class="content-wrapper">
-      <div class="columns">
-         <div class="column is-6 is-offset-1">
-          <div id="ytplayer"></div>
-        </div>
+                <span class="icon-box-text">{{ .text | markdownify }}</span>
+              </p>
+            </div>
+          </div>
+        </article>
+        {{- end }}
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // Load the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/player_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-  // Replace the 'ytplayer' element with an <iframe> and
-  // YouTube player after the API code downloads.
-  var player;
-  function onYouTubePlayerAPIReady() {
-    let width = Math.min(window.innerWidth - 48, 1024);
-    let height = width * 0.75;
-    player = new YT.Player('ytplayer', {
-      height: height,
-      width: width,
-      videoId: '{{ $video }}'
-    });
-  }
-</script>
