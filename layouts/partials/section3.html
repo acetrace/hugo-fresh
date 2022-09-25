@@ -1,15 +1,38 @@
 {{- $section3   := .Site.Params.section3 }}
 {{- $title      := index $section3 "title" }}
+{{- $maintitle      := index $section3 "maintitle" }}
 {{- $subtitle   := index $section3 "subtitle" }}
-{{- $image      := index $section3 "image" }}
+{{- $mainsubtitle   := index $section3 "mainsubtitle" }}
+{{- $text   := index $section3 "text" }}
 {{- $buttonText := index $section3 "buttontext" }}
 {{- $buttonLink := index $section3 "buttonlink" }}
 <section class="section section3 is-medium">
   <div class="container">
-    <div class="columns">
-      <div class="column is-10 is-offset-1">
-        <div class="has-text-centered">
-          <img class="pushed-image" src="{{ printf "/images/%s" $image | relURL }}">
+
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-4">{{ $maintitle }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $mainsubtitle }}</h3>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column fixed-screenshot">
+          <div class="is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-icon">
+              <video muted autoplay loop defaultMuted playsinline  oncontextmenu="return false;"  preload="auto" width="400">
+                <source src="/images/ace-trace-sample-2.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="column fixed-screenshot">
+          <div class="is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+            <div class="card-icon">
+              <video muted autoplay loop defaultMuted playsinline  oncontextmenu="return false;"  preload="auto" width="400">
+                <source src="/images/ace-trace-sample-3.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -17,6 +40,7 @@
     <div class="title-wrapper has-text-centered">
       <h2 class="title is-2">{{ $title }}</h2>
       <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <p class="has-text-centered mt-20"> {{ $text }} </p>
     </div>
 
     <p class="has-text-centered mt-20">
