@@ -9,6 +9,8 @@
 	{{ partial "subscribe.html" }}
 {{ else if (isset .Params "maplehill") }}
 	{{ partial "maplehill.html" }}
+{{ else if (isset .Params "post") }}
+	{{ partial "post/list.html" }}
 {{ else }}
 	{{ partial "single/content.html" . }}
 {{ end }}

@@ -1,32 +1,41 @@
-{{- $sidebar  := .Site.Params.sidebar }}
-{{- $logo     := index $sidebar "logo" }}
-{{- $sections := index $sidebar "sections" }}
-<div class="sidebar">
-  <div class="sidebar-header">
-    <img src="{{ printf "/images/logos/%s.svg" $logo | relURL }}">
-    <a class="sidebar-close" href="javascript:void(0);">
-      <i data-feather="x"></i>
-    </a>
-  </div>
-  <div class="inner">
-    <ul class="sidebar-menu">
-      {{- range $sections }}
-      <li class="have-children">
-        <a href="#">
-          <span class="fa fa-{{ .icon }}"></span>
-          {{ .title }}
-        </a>
-        <ul>
-          {{- range .links }}
-          <li>
-            <a href="{{ .url }}">
-              {{ .text }}
-            </a>
-          </li>
-          {{- end }}
-        </ul>
-      </li>
-      {{- end }}
+<div
+  class="sidebar{{ with .Site.Params.doNotLoadAnimations }}
+    .
+
+  {{ else }}
+    animated fadeInDown
+
+  {{ end }}"
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="{{ .Site.Params.profilePicture | relURL }}"
+        alt="profile picture"
+      />
+      <h1 class="sidebar__introduction-title">
+        <a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Params.Title }}</a>
+      </h1>
+      <div class="sidebar__introduction-description">
+        <p>{{ replace .Site.Params.description "\n" "<br />" | safeHTML }}</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      {{ range $item := .Site.Params.socialIcons }}
+        <li class="sidebar__list-item">
+          <a href="{{ $item.url }}" rel="me" aria-label="{{ $item.title }}" title="{{ $item.title }}">
+            <i class="{{ $item.icon }} fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      {{ end }}
     </ul>
+    <div class="sidebar__subscribe">
+      <a href="{{ .Site.Params.subscribeUrl }}" target="_blank">
+        {{ .Site.Params.subscribeText }}
+      </a>
+    </div>
   </div>
+  {{- partial "footer-blog.html" (dict "context" . "footerClassModifier" "sidebar") -}}
 </div>
