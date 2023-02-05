@@ -61,7 +61,8 @@
   &__content {
     a {
       @include themed() {
-        color: t('info');
+        color: #fff;
+        font-size: 1.5rem;
       }
     }
 

@@ -1,6 +1,9 @@
 .sidebar {
   margin-top: 40px;
 
+  background-color: $accent--darkmode;
+  color: $primary--darkmode;
+
   @include desktop_and_print {
     z-index: 2;
     position: fixed;
