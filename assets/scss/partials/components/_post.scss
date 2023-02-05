@@ -61,7 +61,13 @@
   &__content {
     a {
       @include themed() {
-        color: #fff;
+        color: t('info');
+      }
+    }
+
+    a.button {
+      @include themed() {
+        color: t('primary');
         font-size: 1.5rem;
       }
     }
