@@ -145,6 +145,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon | relURL }}favicon-16x16.png" />
 
   <link rel="canonical" href="{{ .Permalink }}" />
+  {{ partial "css-blog.html" . }}
 
   <!-- RSS -->
   {{ with .OutputFormats.Get "rss" -}}
