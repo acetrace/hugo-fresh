@@ -3,6 +3,8 @@
 {{ template "_internal/opengraph.html" . }}
 {{ end }}
 
+{{ template "_internal/twitter_cards.html" . }}
+
 {{ if and (hugo.IsProduction) (.Site.Params.googleAnalyticsID) }}
 {{ partial "analytics.html" . }}
 {{ end }}

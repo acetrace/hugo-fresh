@@ -1,6 +1,7 @@
 // Main container
 
 .hero
+  overflow: clip
   align-items: stretch
   display: flex
   flex-direction: column
@@ -124,9 +125,12 @@
   // Modifiers
   &.is-transparent
     opacity: 0.3
-  // Responsiveness
-  +mobile
-    display: none
+
+
+.hero-video-top
+  video
+    min-height: 100%
+    min-width: 100%
 
 .hero-buttons
   margin-top: 1.5rem

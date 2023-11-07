@@ -2,9 +2,13 @@
 Hero styles
 ========================================================================== */
 
+@media screen and (min-width: 770px) {
+    .hero-body {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
 .hero-body {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
     .title, .subtitle {
         font-family: 'Open Sans', sans-serif;
     }
@@ -17,6 +21,12 @@ Hero styles
         &.is-muted {
             color: $section-grey;
         }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .hero-body {
+        padding: 0;
     }
 }
 
