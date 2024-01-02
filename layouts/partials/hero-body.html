@@ -2,14 +2,102 @@
 {{- $title      := index $hero "title" }}
 {{- $subtitle   := index $hero "subtitle" }}
 {{- $buttonText := index $hero "buttontext" }}
+{{- $buttonText2 := index $hero "buttontext2" }}
 {{- $buttonLink := index $hero "buttonlink" }}
 {{- $subText    := index $hero "subtext" }}
 {{- $image      := index $hero "image" }}
-<div class="hero-video-top">
+
+<style>
+  /* Base styles */
+  .video-container {
+    position: relative;
+    overflow: hidden; /* Ensures no overflow from video or overlay */
+  }
+
+  .responsive-video {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    min-height: 400px; /* Minimum height for larger screens */
+    object-fit: cover; /* Cover the container, might cut off video */
+  }
+
+  .overlay-text {
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+
+  /* Mobile and below styles */
+  @media (max-width: 767px) {
+    .responsive-video {
+      min-height: calc(100vh - 100px); /* Full height of the viewport */
+    }
+
+    .overlay-text {
+      font-size: 16px;
+    }
+
+    .overlay-text h1 {
+      font-size: 24px;
+    }
+
+    .cta-button {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  /* Desktop and above styles */
+  @media (min-width: 768px) {
+    .video-container {
+      width: 100%; /* Full width */
+    }
+
+    .responsive-video {
+      border-radius: 30px; /* Rounded corners */
+    }
+
+    /* Maybe position the CTA button differently on larger screens */
+    .cta-button {
+      position: absolute;
+      bottom: 25%;
+      left: 80%;
+      transform: translateX(-50%);
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .overlay-text {
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+    }
+  }
+</style>
+
+<div class="video-container">
+  <div class="overlay-text">
+    <div class="container">
+      <h1 class="title is-12">Transform your golf videos with Ace Trace shot tracer</h1>
+      <h2 class="subtitle is-12 muted">Experience the best in golf shot tracing technology, designed for professional golf video creators.</h2>
+    </div>
+  </div>
   <video muted autoplay loop defaultMuted playsinline oncontextmenu="return false;" preload="auto"
-         poster="/images/hero/preview.jpg">
+         poster="/images/hero/preview.jpg" class="responsive-video">
     <source src="/images/hero/preview.mp4" type="video/mp4">
   </video>
+  <a class="button cta cta-button rounded primary-btn raised" href="{{ $buttonLink }}">
+    {{ $buttonText }}
+  </a>
 </div>
 <div class="hero-body">
   <div class="container">
@@ -26,7 +114,7 @@
         {{ end }}
         <p>
           <a class="button cta rounded primary-btn raised" href="{{ $buttonLink }}">
-            {{ $buttonText }}
+            {{ $buttonText2 }}
           </a>
         </p>
       </div>
